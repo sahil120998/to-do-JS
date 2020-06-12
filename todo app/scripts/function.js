@@ -1,7 +1,9 @@
+//Save data
 const savetodos =function(todos){
     localStorage.setItem("todos", JSON.stringify(todos))
 }
 
+//fetch saved todos
 const fetchtodos = function(){
     const todosJson = localStorage.getItem("todos")
     if(todosJson !== null){
@@ -13,6 +15,8 @@ const fetchtodos = function(){
     }
 
 }
+
+//toggle todo
 const toggletodo = function(id){
     const todo = todos.find(function(todo){
         return todo.id === id
@@ -22,6 +26,7 @@ const toggletodo = function(id){
     }
 }
 
+//Delete todo from array
 const removetodos = function(id){
     const findIndex = todos.findIndex(function(todo){
         return todo.id === id
@@ -33,6 +38,7 @@ const removetodos = function(id){
 
 }
 
+//Creating new Element
 const NewEl = function(filteredtodos){
     filteredtodos.forEach(item => {
         const cont = document.createElement("div")
@@ -66,17 +72,16 @@ const NewEl = function(filteredtodos){
     });
 }
 
+// Display saved todos on screen
 const rendertodos = function(todos,filter){
     // const filteredtodos = todos.filter((item) => item.todo.toLowerCase().includes(filter.searchtext.toLowerCase()))
     const filteredtodos = todos.filter((todo) => todo.todo.toLowerCase().includes(filter.searchtext.toLowerCase()) )
 
     document.querySelector(".data").innerHTML = " "
     NewEl(filteredtodos)
-    
-    
-    
-
 }
+
+//remaining todos to do
 const remainingtodos = function(todos){
     const remainingtodo = todos.find(function(todo){
         return todo.completed === true
