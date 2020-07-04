@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="form.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+          <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+              <p></p>
+              <h1></h1>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
+          <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="days"></div>
+        </div>
+        <div class="rightpart">
+            <div class="form">
+                <form id="form2">
+                  <input id="input1" type="text" placeholder="Search To-Do" class="todo">
+                    <div class="data"></div>
+
+                </form>
+             </div>
+             <div class="bottom">
+              <div class="remaining"></div>
+              <div class="plus">
+             <i class="fa fa-plus-circle fa-4x addtodo"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-popup" id="myForm">
+        <form class="form-container" id="form1">
+          <h1 style="color: white;">Add Todo</h1>
+  
+          <input type="text" placeholder="Type here...." name="todo" required>
+      
+          <button type="submit" class="btn">Add</button>
+          <button class="cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    <script src="script/functions.js"></script>  
+    <script src="script/app.js"></script>  
+    <script src="script/script.js"></script>
+    <script src="script/uuid.js"></script>
+</body>
+</html>
