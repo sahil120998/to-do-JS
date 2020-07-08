@@ -26,7 +26,8 @@ const toggletodo = function(id){
 const remainingtodos = function(todos,month){
 
     var Rtodos= [];
-    console.log(typeof(Rtodos))
+    console.log(todos)
+    console.log(month)
     todos.forEach(function(todo){
             if(todo.DId.includes(month))
             {
@@ -61,7 +62,7 @@ const NewEl = function(filteredtodos){
         btn.addEventListener("click",function(e){
             removetodos(item.id)
             savetodos(todos)
-            remaining = remainingtodos(todos,months[date.getMonth()])
+            remaining = remainingtodos(todos,months[Currmonth]+"-"+date.getFullYear())
             rendertodos(todos,filter,DId,remaining)
         })
         cont.appendChild(btn)
@@ -126,7 +127,7 @@ const renderCalendar = function(Currday,Currmonth){
     
     document.querySelector(".date h1").innerHTML = months[date.getMonth()];
   
-    document.querySelector(".date p").innerHTML = new Date().toDateString();
+    document.querySelector(".date p").innerHTML = date.toDateString();
     MandY = "-"+months[date.getMonth()]+"-"+date.getFullYear()
   
     let days = "";
