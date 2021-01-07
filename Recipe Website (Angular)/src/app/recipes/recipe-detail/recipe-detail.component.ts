@@ -11,6 +11,8 @@ import { ActivatedRoute, Params,Router } from '@angular/router';
 export class RecipeDetailComponent implements OnInit {
    recipe: Recipe;
    id:number;
+   addIngredients = false
+   added = "Ingredients added to Shopping list. Check it out!!!"
   constructor(private recipeService: RecipeService,
     private route:ActivatedRoute,
     private router:Router) { }
@@ -19,7 +21,6 @@ export class RecipeDetailComponent implements OnInit {
     //const id= this.route.snapshot.params['id'];
     this.route.params.subscribe((params:Params)=>{
       this.id= +params['id']
-      console.log(this.id)
       this.recipe=this.recipeService.getRecipe(this.id)
     })
     }
@@ -27,8 +28,21 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddToShoppingList(){
    this.recipeService.addToShoppingList(this.recipe.ingredients)
+   this.addIngredients = true
+
   }
+
+  onAddIngredientsToShoppingList(){
+    this.addIngredients = false
+  }
+
   onEditRecipe(){
   this.router.navigate(["edit"],{relativeTo: this.route})
+  }
+  
+  onDeleteRecipe(){
+    this.recipeService.deleteRecipe(this.id)
+    this.router.navigate(['/recipes'])
+
   }
 }
